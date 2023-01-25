@@ -1,0 +1,1199 @@
+												ASSIGNMENT-1
+1.	CALCULATOR
+2.	using System;
+3.	class ARITHMETIC
+4.	{
+5.	    public static void Main()
+6.	    { 
+7.	        Console.WriteLine("Enter any two numbers");
+8.	        Console.WriteLine("Enter first numbers:\n");
+9.	        int firstNumber = int.Parse(Console.ReadLine());
+10.	        Console.WriteLine("Enter second numbers:\n");
+11.	        int secondNumber = int.Parse(Console.ReadLine());
+12.	        //calculator 
+13.	        //1. Addition
+14.	         float f = 0;   
+15.	        f = firstNumber + secondNumber; 
+16.	        Console.WriteLine("Addition of two numbers is {0}", f); 
+17.	        //2. substraction
+18.	                 f = firstNumber - secondNumber; 
+19.	        Console.WriteLine("Substraction of two numbers is {0}", f); 
+20.	        //3. Multiply    
+21.	            f = firstNumber * secondNumber;
+22.	        Console.WriteLine("Multiplication of two numbers is {0}", f);
+23.	        //4.Division 
+24.	                f = (float)firstNumber / (float)secondNumber; 
+25.	        Console.WriteLine("Divison of two numbers is {0}", f); 
+26.	        Console.WriteLine("\n");   
+27.	        Console.WriteLine("\n");   
+28.	        //tables of any number  
+29.	        Console.WriteLine("Enter any number which you want multiplication");  
+30.	        int enterNumber=int.Parse(Console.ReadLine());   
+31.	        for (int i=1; i<=10 ;i++) 
+32.	        {          
+33.	            int table = enterNumber*i;    
+34.	            Console.WriteLine("{0} X {1} ={2}",enterNumber,i,table);  
+35.	        }         
+36.	        //switch-case statement    
+37.	            Console.WriteLine("Enter any number to check for even or odd");
+38.	        int num=int.Parse(Console.ReadLine());  
+39.	        switch(num%2) 
+40.	        {         case 1:    Console.WriteLine("{0} is odd",num);  
+41.	                break;  
+42.	            case 0:   Console.WriteLine("{0} is even",num);
+43.	                break; 
+44.	            default: Console.WriteLine("invalid value");
+45.	                break;
+46.	        }       
+47.	    }
+48.	} 
+OUTPUT:
+Enter any two numbers
+Enter first numbers:8
+Enter second numbers:6
+Addition of two numbers is 14
+Substraction of two numbers is 2
+Multiplication of two numbers is 48
+Divison of two numbers is 1.3333334
+Enter any number which you want multiplication:4
+4 X 1 =4
+4 X 2 =8
+4 X 3 =12
+4 X 4 =16
+4 X 5 =20
+4 X 6 =24
+4 X 7 =28
+4 X 8 =32
+4 X 9 =36
+4 X 10 =40
+Enter any number to check for even or odd
+345
+345 is odd
+
+2. 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+    class student
+    {
+  
+            public static void Main(String[] arg)
+            {
+                int[] marks = new int[5];
+                Console.WriteLine("Enter students marks");
+                for (int i = 0; i < 5; i++)
+                {
+                    Console.WriteLine("Marks {0}-{1}", i, marks);
+                    marks[i] = Convert.ToInt32(Console.ReadLine());
+                }
+                double avg = Queryable.Average(marks.AsQueryable());
+                Console.WriteLine("Avg={0}", avg);
+                Console.WriteLine("Maximum marks is {0}", marks.Max());
+            }
+        
+    }
+
+OUTPUT:
+ Enter students marks
+Marks 0-System.Int32[]
+87
+Marks 1-System.Int32[]
+78
+Marks 2-System.Int32[]
+90
+Marks 3-System.Int32[]
+98
+Marks 4-System.Int32[]
+67
+Avg=84
+Maximum marks is 98
+
+3.
+using System;
+using System.Collections.Generic;
+using System.Text;
+namespace CSHARP_ASSIGMENTS
+{
+    class Params
+    {
+        public static void Main()
+        {
+            int totalSum = 0;
+            int[] number = { 12, 34, 67 };
+                Params.paramsMethod(ref totalSum, number);
+            Console.WriteLine("sum={0}", totalSum);
+        }
+        public static void paramsMethod(ref int sum, params int[] num)
+        {
+            Console.WriteLine("there are {0} elements", num.Length);
+            for (int i = 0; i < num.Length; i++)
+            {
+                Console.WriteLine(num[i]);
+                sum += num[i];
+            }
+        }
+    }
+}
+OUTPUT:
+there are 3 elements1234
+67
+sum=113
+
+4.
+ using System;
+using System.Collections.Generic;
+using System.Text;
+namespace CSHARP_ASSIGMENTS
+{
+ class Swap
+    {
+     public static void Main()
+        {
+            int fn= 0;
+            int sn = 0;
+            int temp = 0;
+            Swap.swapNum(ref fn, ref sn, ref temp);
+            Console.WriteLine("after swapping");
+            Console.WriteLine("first number={0}", fn);
+            Console.WriteLine("Second number={0}", sn);
+        }
+        public static void swapNum(ref int a,ref int b,ref int c)
+        {
+            Console.WriteLine("input the first number");
+            a = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("input the second number");
+            b = Convert.ToInt32(Console.ReadLine());
+            c = a;
+            a = b;
+            b = c;
+
+        }
+     }
+
+ }
+
+OUTPUT:
+input the first number
+8
+input the second number
+9
+after swapping
+first number=9
+Second number=8
+
+5.
+ using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace CSHARP_ASSIGMENTS
+{
+    class Circle
+    {
+        public static void Main()
+        {
+            decimal pi = 3.14m;
+            int r = 0;
+            decimal area = 0m;
+            decimal circumference = 0m;
+            Console.WriteLine("area of circle");
+            Console.WriteLine("----------------");
+            Console.WriteLine("enter radius of circle");
+            r = Convert.ToInt32(Console.ReadLine());
+            area = pi * r * r;
+            Circle.area(ref area);
+            Console.WriteLine("circumference of circle");
+            Console.WriteLine("-----------");
+            Console.WriteLine("enter radius of circle");
+            r = Convert.ToInt32(Console.ReadLine());
+            circumference = 2 * pi * r;
+            Circle.circumference(ref circumference);
+        }
+        public static void area(ref decimal a)
+        {
+            Console.WriteLine("area of circle={0}", a);
+        }
+        public static void circumference(ref decimal c)
+        {
+            Console.WriteLine("circumference of circle={o}", c);
+        }
+    }
+}
+
+OUTPUT:
+area of circle
+----------------
+enter radius of circle
+6
+area of circle=113.04
+circumference of circle
+-----------
+enter radius of circle
+6
+Circumference of circle =37.68
+
+6. 
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace CSHARP_ASSIGMENTS
+{
+        public struct Book
+        {
+            private int BOOKID; 
+            private string TITLE;
+            private int PRICE; 
+            private string BOOKTYPE;
+            public int bookid {
+                get 
+                { 
+                    return this.BOOKID; 
+                } 
+                set
+                {
+                    this.BOOKID = value;
+                } 
+            }
+            public string Title
+            {
+                get 
+                { 
+                    return this.TITLE; 
+                }
+                set
+                {
+                    this.TITLE = value;
+                }
+            }
+            public int Price
+            {
+                get
+                {
+                    return this.PRICE;
+                }
+                set
+                {
+                    this.PRICE = value;
+                }
+            }
+            public string booktype
+            {
+                get 
+                {
+                    return this.BOOKTYPE;
+                } 
+                set 
+                {
+                    this.BOOKTYPE = value;
+                }
+            }
+            public Book(int bookid, string title, int price, string booktype)
+            {
+                this.BOOKID = bookid; 
+                this.TITLE = title;
+                this.PRICE = price;
+                this.BOOKTYPE = booktype; 
+            } 
+            public void PrintDetails()
+            {
+                Console.WriteLine("BookId ={0} , Title ={1} ,Price={2} ,BookType={3}", this.BOOKID, this.TITLE, this.PRICE, this.BOOKTYPE); 
+            }
+        }
+        public enum bookType { magazine, novel, referenceBook, miscllenous }
+        public class Books
+        {
+            public static void Main() 
+            { 
+                Books b1 = new Book(101, "Bio", 20, bookType.magazine);
+                b1.PrintDetails();
+                Books b2 = new Book(102, "Phy", 30, bookType.novel);
+                b2.PrintDetails(); 
+                Books b3 = new Book(103, "civics", 20, bookType.miscllenous);
+            b3.PrintDetails();
+        }
+
+        private void PrintDetails()
+        {
+            throw new NotImplementedException();
+        }
+    }
+ 
+}
+
+							ASSIGNMENT -2
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+public class Employee
+{
+    int EmpNo;
+    string EmpName;
+    double Salary;
+    double HRA;
+    double TA;
+    double DA;
+    double PF;
+    double TDS;
+    double NetSalary;
+    double GrossSalary;
+    //method 
+    public void set_EmpNo_Name_Salary()
+    {
+        //taking input of emp no,emp name and for  salary 
+        Console.WriteLine("Enter Emp No, Emp Name,Salary of an an employee");
+        EmpNo = Convert.ToInt32(Console.ReadLine());
+        EmpName = Console.ReadLine();
+        Salary = Convert.ToDouble(Console.ReadLine());
+ Console.WriteLine("Emp No =  {0}\nEmpName = {1}\nSalary = {2} ",EmpNo, EmpName, Salary);
+    }
+    public double GroSal()
+    {
+        GrossSalary = 0;
+        if (Salary < 5000)
+        {
+            HRA = 10 * Salary / 100;
+            TA = 5 * Salary / 100;
+            DA = 15 * Salary / 100;
+            GrossSalary = Salary + HRA + TA + DA;
+        }
+        else if (Salary < 10000)
+        {
+            HRA = 15 * Salary / 100;
+            TA = 10 * Salary / 100;
+            DA = 20 * Salary / 100;
+            GrossSalary = Salary + HRA + TA + DA;
+        }
+        else if (Salary < 150000)
+        {
+            HRA = 20 * Salary / 100;
+            TA = 15 * Salary / 100;
+            DA = 25 * Salary / 100;
+            GrossSalary = Salary + HRA + TA + DA;
+        }
+        else if (Salary < 200000)
+        {
+            HRA = 25 * Salary / 100;
+            TA = 20 * Salary / 100;
+            DA = 30 * Salary / 100;
+            GrossSalary = Salary + HRA + TA + DA;
+        }
+        else if (Salary >= 20000)
+        {
+            HRA = 10 * Salary / 100;
+            TA = 5 * Salary / 100;
+            DA = 15 * Salary / 100;
+            GrossSalary = Salary + HRA + TA + DA;
+
+        }
+        return GrossSalary;
+    }
+    public void CalCulateSalary()
+    {
+        Console.WriteLine("HERE PF , TDS AND NET SALARY OF AN EMPLOYEE");
+        Double GrosSal = GroSal();
+        PF = 10 * GrosSal / 100;
+        TDS = 18 * GrosSal / 100;
+        NetSalary = GrosSal - (PF + TDS);
+        Console.WriteLine(" PF = {0} \nTDS = {1}\nNetSalary = {2}", PF, TDS, NetSalary);
+    }
+static void Main()
+    {
+        Employee emp = new Employee();
+        emp.set_EmpNo_Name_Salary();
+        Double Gs = emp.GroSal();
+        Console.WriteLine(" Gross SALARY {0}  ", Gs);
+        emp.CalCulateSalary();
+        Console.ReadLine();
+    }
+}
+
+OUTPUT:
+Enter Emp No, Emp Name,Salary of an an employee
+657757
+usha
+30000
+Emp No =  657757
+EmpName = usha
+Salary = 30000
+ Gross SALARY 48000  
+HERE PF , TDS AND NET SALARY OF AN EMPLOYEE
+ PF = 4800
+TDS = 8640
+NetSalary = 34560
+
+								ASSIGNMENT-3
+1.
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Console;
+
+namespace ASSIGNMENTS_CSHARP2
+{
+    class Inhertiance
+    {
+        public interface IPrintable
+        {
+            void DisplayEmployeeDetails();
+        }
+        public class Employee
+        {
+            public int emp_id;
+            public string emp_name;
+            public float Salary;
+            public float GrossSalary;
+            public void GetSalaryWithEmployeeDetails()
+            {
+                WriteLine("Enter Employee Details Like emp_id,emp_name");
+                emp_id = int.Parse(ReadLine());
+                emp_name = ReadLine();
+                WriteLine("Enter Salary of an Employe .");
+                Salary = float.Parse(ReadLine());
+            }
+            public virtual void CalculateSalary()
+            {
+            }
+        }
+        public class Manager : Employee, IPrintable
+        {
+            private float PA;
+            private float FA;
+            private float OA;
+            public override void CalculateSalary()
+            {
+                PA = 8 * Salary / 100;
+                FA = 13 * Salary / 100;
+                OA = 3 * Salary / 100;
+                GrossSalary = Salary + PA + FA + OA;
+            }
+            public void DisplayEmployeeDetails()
+            {
+                WriteLine("Manager Details...");
+                WriteLine("emp_id: {0}\nemp_name: {1}\nGrossSalary:{2}", emp_id, emp_name, GrossSalary);
+            }
+        }
+        public class MarketingExecutive : Employee, IPrintable
+        //inherited Employee class and interface IEmployee 
+        {
+            private int Distance;
+            private float TourAllowances;
+            private float Telephone_Allowances;
+            public override void CalculateSalary() //override method of Employee class 
+            {
+                WriteLine("Enter Distance travelled during Marketing Executive in km");
+                Distance = int.Parse(ReadLine());//taking distance input 
+                TourAllowances = 5 * Distance; //5 rupees per km 
+                Telephone_Allowances = 1000;
+                GrossSalary = Salary + TourAllowances + Telephone_Allowances;
+            }
+            public void DisplayEmployeeDetails() //implementation of interface method 
+            {
+                WriteLine("Marketing Executive Details....");
+                WriteLine("emp_id: {0}\n emp_name: {1}\nGross Salary:{2}", emp_id, emp_name, GrossSalary);
+            }
+        }
+        internal class Program
+        {
+            static void Main(string[] args)
+            {
+                Manager mg = new Manager();
+                MarketingExecutive me = new MarketingExecutive();
+                WriteLine("Manager Input");
+                mg.GetSalaryWithEmployeeDetails();
+                mg.CalculateSalary();
+                mg.DisplayEmployeeDetails();
+                WriteLine("Marketing Executive Input");
+                me.GetSalaryWithEmployeeDetails();
+                me.CalculateSalary();
+                me.DisplayEmployeeDetails();
+                ReadLine();
+            }
+        }
+    }
+
+
+
+}
+
+  						   
+2.
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Console;
+using static System.Convert;
+
+namespace ASSIGNMENTS_CSHARP2
+{
+     public class Stack
+     {
+        
+
+            int size_of_stack;
+            int top_position = 0;
+            int[] array = new int[20];
+            public void GetSizeOfStack()//for getting size of stack 
+            {
+                WriteLine("Enter Size of Stack");
+                size_of_stack = int.Parse(ReadLine());
+            }
+            public void Push()
+            {
+                if (top_position == (size_of_stack - 1))
+                {
+                    WriteLine("Stack is Full");
+                }
+                else
+                {
+                    for (int i = 0; i < size_of_stack; i++)
+                    {
+                        WriteLine("Insert element in stack");
+                        int element = int.Parse(ReadLine());
+                        array[++top_position] = element;
+                        WriteLine("Item pushed Successfully!");
+                    }
+                }
+            }
+            public object Pop()
+            {
+                if (top_position == -1)
+                {
+                    WriteLine("Stack is Empty");
+                    return "No elements";
+                }
+                else
+                {
+                    return array[top_position--];
+                }
+            }
+            public void Display()
+            {
+                for (int i = top_position; i > 0; i--)
+                {
+                    WriteLine("Item {0}: |{1}| ", (i), array[i]);
+                }
+                ReadLine();
+            }
+        }
+        internal class Mystack
+        {
+            static void Main(string[] args)
+            {
+                Mystack stack = new Mystack();
+                //stack.GetSizeOfStack(); 
+                while (true)
+                {
+                    Clear();
+                    WriteLine("Stack Menu Program");
+                    WriteLine("1. Enter Size of Stack");
+                    WriteLine("2. Push operation");
+                    WriteLine("3. Pop Operation");
+                    WriteLine("4. Display ");
+                    WriteLine("5. Exit");
+                    Write("Enter Your Choice");
+                    int choice = ToInt32(ReadLine());
+                    switch (choice)
+                    {
+                        case 1:
+                            stack.GetSizeOfStack();
+                            break;
+                        case 2:
+                            stack.Push();
+                            break;
+                        case 3:
+                            WriteLine("Element removed: {0}", stack.Pop());
+                            ReadLine();
+                            break;
+                        case 4:
+                            stack.Display();
+                            break;
+                        case 5:
+                            Environment.Exit(0);
+                            break;
+                    }
+                }
+            }
+        }
+    
+}
+
+								
+
+3.
+using System; 
+using System.Collections; 
+using System.Collections.Generic; 
+using System.Data; 
+using System.Diagnostics; 
+using System.Linq; 
+using System.Text; 
+using System.Threading.Tasks; 
+namespace StackExceptionPro 
+{ 
+    interface Istack 
+    { 
+        Boolean IsEmpty(); 
+        void Push(object element); 
+        object Pop(); 
+        object Peek(); 
+        void Display(); 
+    } 
+    class PushPop : Istack 
+    { 
+        public int top; 
+        object[] item; 
+        public int stack_size; 
+        public PushPop(int stack_size) //parametrised constructor 
+        { 
+            this.stack_size = stack_size; 
+            item = new object[stack_size]; 
+            top = -1; 
+        } 
+        public PushPop() //default constructor 
+        { 
+            stack_size = 10; 
+            item = new object[stack_size]; 
+            top = -1; 
+        } 
+        public bool IsEmpty() //Method to check is stack empty or full 
+        { 
+            if (top == (stack_size - 1)) 
+            { 
+                return true; 
+            } 
+            else 
+                return false; 
+        } 
+        public void Push(object element) 
+        { 
+            if (top == (stack_size - 1)) 
+            { 
+                throw new Exception("Exception Stack overflow because stack is full"); 
+            } 
+            else 
+            { 
+                item[++top] = element; 
+                Console.WriteLine("Item Pushed Successfully"); 
+            } 
+        } 
+        public object Pop() 
+        { 
+            if (IsEmpty()) 
+            { 
+                throw new Exception("Exception underflow because stack is empty"); 
+                return null; 
+            } 
+            else 
+            { 
+                return item[top--]; 
+            } 
+        } 
+        public object Peek() 
+        { 
+            if (IsEmpty()) 
+            { 
+                throw new Exception("Stack Underflow exception because stack is empty"); 
+                return null; 
+            } 
+            else 
+            { 
+                return item[top]; 
+            } 
+        } 
+        public void Display() 
+        { 
+            for (int i = top; i > -1; i--) 
+            { 
+                Console.WriteLine(item[i]); 
+            } 
+        } 
+    } 
+    internal class Program 
+    { 
+        static void Main(string[] args) 
+        { 
+            PushPop st = new PushPop(); 
+            object element; 
+            while (true) 
+            { 
+                Console.Clear(); 
+                Console.WriteLine("1. IsEmpty()"); 
+                Console.WriteLine("2. Push()"); 
+                Console.WriteLine("3. Pop()"); 
+                Console.WriteLine("4. Peek()"); 
+                Console.WriteLine("5. Display()"); 
+                Console.WriteLine("6. Exit()"); 
+                Console.WriteLine("Enter Your Choice"); 
+                int choice; 
+                choice = int.Parse(Console.ReadLine()); 
+                Console.WriteLine(); 
+                switch (choice) 
+                { 
+                    case 1: 
+                        if (st.IsEmpty()) 
+                        { 
+                            Console.WriteLine("Stack is Empty"); 
+                        } 
+                        else 
+                        { 
+                            Console.WriteLine("Stack is not empty"); 
+                        } 
+                        break; 
+                    case 2: 
+                        Console.WriteLine("Enter element"); 
+                        element = Console.ReadLine(); 
+                        try 
+                        { 
+                            st.Push(element); 
+                        } 
+                        catch (StackOverflowException e) 
+                        { 
+                            Console.WriteLine(e.Message); 
+                        } 
+                        break; 
+                    case 3: 
+                        try 
+                        { 
+                            element = st.Pop(); 
+                            Console.WriteLine("Element removed is {0} ", element); 
+                        } 
+                        catch (Exception e) 
+                        { 
+                            Console.WriteLine(e.Message); 
+                        } 
+                        break; 
+                    case 4: 
+                        try 
+                        { 
+                            element = st.Peek(); 
+                            Console.WriteLine("Element removed is {0} ", element); 
+                        } 
+                        catch (Exception e) 
+                        { 
+                            Console.WriteLine(e.Message); 
+                        } 
+                        break; 
+                    case 5: 
+                        st.Display(); 
+                        break; 
+                    case 6: 
+                        Environment.Exit(0); 
+                        break; 
+                    default: 
+                        Console.WriteLine("Enter valid choice"); 
+                        break; 
+                } 
+                Console.ReadLine(); 
+            } 
+        } 
+ 
+							ASSIGNMENT-4
+1.
+using System; 
+using System.Collections; 
+using System.Collections.Generic; 
+using System.Data; 
+using System.Diagnostics; 
+using System.Linq; 
+using System.Text; 
+using System.Threading.Tasks; 
+namespace StackExceptionPro 
+{ 
+    interface Istack 
+    { 
+        Boolean IsEmpty(); 
+        void Push(object element); 
+        object Pop(); 
+        object Peek(); 
+        void Display(); 
+    } 
+    class PushPop : Istack 
+    { 
+        public int top; 
+        object[] item; 
+        public int stack_size; 
+        public PushPop(int stack_size) //parametrised constructor 
+        { 
+            this.stack_size = stack_size; 
+            item = new object[stack_size]; 
+            top = -1; 
+        } 
+        public PushPop() //default constructor 
+        { 
+            stack_size = 10; 
+            item = new object[stack_size]; 
+            top = -1; 
+        } 
+        public bool IsEmpty() //Method to check is stack empty or full 
+        { 
+            if (top == (stack_size - 1)) 
+            { 
+                return true; 
+            } 
+            else 
+                return false; 
+        } 
+        public void Push(object element) 
+        { 
+            if (top == (stack_size - 1)) 
+            { 
+                throw new Exception("Exception Stack overflow because stack is full"); 
+            } 
+            else 
+            { 
+                item[++top] = element; 
+                Console.WriteLine("Item Pushed Successfully"); 
+            } 
+        } 
+        public object Pop() 
+        { 
+            if (IsEmpty()) 
+            { 
+                throw new Exception("Exception underflow because stack is empty"); 
+                return null; 
+            } 
+            else 
+            { 
+                return item[top--]; 
+            } 
+        } 
+        public object Peek() 
+        { 
+            if (IsEmpty()) 
+            { 
+                throw new Exception("Stack Underflow exception because stack is empty"); 
+                return null; 
+            } 
+            else 
+            { 
+                return item[top]; 
+            } 
+        } 
+        public void Display() 
+        { 
+            for (int i = top; i > -1; i--) 
+            { 
+                Console.WriteLine(item[i]); 
+            } 
+        } 
+    } 
+    internal class Program 
+    { 
+        static void Main(string[] args) 
+        { 
+            PushPop st = new PushPop(5); 
+            object element; 
+            while (true) 
+            { 
+                Console.Clear(); 
+                Console.WriteLine("1. IsEmpty()"); 
+                Console.WriteLine("2. Push()"); 
+                Console.WriteLine("3. Pop()"); 
+                Console.WriteLine("4. Peek()"); 
+                Console.WriteLine("5. Display()"); 
+                Console.WriteLine("6. Exit()"); 
+                Console.WriteLine("Enter Your Choice"); 
+                int choice; 
+                choice = int.Parse(Console.ReadLine()); 
+                Console.WriteLine(); 
+                switch (choice) 
+                { 
+                    case 1: 
+                        if (st.IsEmpty()) 
+                        { 
+                            Console.WriteLine("Stack is Empty"); 
+                        } 
+                        else 
+                        { 
+                            Console.WriteLine("Stack is not empty"); 
+                        } 
+                        break; 
+                    case 2: 
+                        Console.WriteLine("Enter element"); 
+                        element = Console.ReadLine(); 
+                        try 
+                        { 
+                            st.Push(element); 
+                        } 
+                        catch (Exception e) 
+                        { 
+                            Console.WriteLine(e.Message); 
+                        } 
+                        break; 
+                    case 3: 
+                        try 
+                        { 
+                            element = st.Pop(); 
+                            Console.WriteLine("Element removed is {0} ", element); 
+                        } 
+                        catch (Exception e) 
+                        { 
+                            Console.WriteLine(e.Message); 
+                        } 
+                        break; 
+                    case 4: 
+                        try 
+                        { 
+                            element = st.Peek(); 
+                            Console.WriteLine("Element removed is {0} ", element); 
+                        } 
+                        catch (Exception e) 
+                        { 
+                            Console.WriteLine(e.Message); 
+                        } 
+                        break; 
+                    case 5: 
+                        st.Display(); 
+                        break; 
+                    case 6: 
+                        Environment.Exit(0); 
+                        break; 
+                    default: 
+                        Console.WriteLine("Enter valid choice"); 
+                        break; 
+                } 
+                Console.ReadLine(); 
+            } 
+        } 
+    } 
+} 
+ 
+ 
+								          ASSIGNEMENT-5
+1.
+using System; 
+using System.Collections.Generic; 
+using System.Linq; 
+using System.Text; 
+using System.Threading.Tasks; 
+using System.Collections; 
+namespace ArrayList1 
+{ 
+    public class Employee 
+    { 
+        string name; 
+        int emp_id; 
+        double salary; 
+        public Employee(string name, int emp_id, double salary) 
+        { 
+            this.name = name; 
+            this.emp_id = emp_id; 
+            this.salary = salary; 
+        } 
+        public override string ToString() 
+        { 
+            return 
+            String.Format("{0,-10} emp_id : {1,6} salary : {2}", name, emp_id, salary); 
+        } 
+    } 
+    internal class Program 
+    { 
+        static void Main(string[] args) 
+        { 
+            ArrayList emp = new ArrayList(); 
+            Console.WriteLine("Add element to the list"); 
+            emp.Add(new Employee("USHA", 022, 234350.89)); 
+            emp.Add(new Employee("AVANTHI", 045, 421500.78)); 
+            emp.Add(new Employee("Divya", 048, 234560.89)); 
+            emp.Add(new Employee("PRIYA", 075, 2234010.89)); 
+            Console.WriteLine("Employee Details\n"); 
+            foreach (Employee empl in emp) 
+            { 
+                Console.WriteLine(" " + empl); 
+            } 
+            Console.ReadLine(); 
+        } 
+    } 
+} 
+ 
+2.
+using System; 
+using System.Collections.Generic; 
+using System.Linq; 
+using System.Text; 
+using System.Threading.Tasks; 
+namespace Assignment5quet3LinkedList 
+{ 
+    internal class Program 
+    { 
+        static void Main(string[] args) 
+        { 
+            LinkedList<string> employee = new LinkedList<string>(); 
+            //Adding a new employee 
+            employee.AddFirst("USHA"); 
+            employee.AddFirst("Anjali"); 
+            employee.AddFirst("DIVYA"); 
+            Console.WriteLine("Display the list of an employee\n"); 
+            foreach (string emp in employee) 
+            { 
+                Console.WriteLine(emp + "\n"); 
+            } 
+            Console.WriteLine("Total number of employee in the list : " + employee.Count()); 
+            Console.WriteLine("\n"); 
+            //Searching employee name is it present or not Assignment 5 quetion 5 
+            Console.WriteLine("The employee name USHA is present in linked list : " + 
+            employee.Contains("USHA")); 
+            Console.WriteLine("\n"); 
+            Console.ReadLine(); 
+        } 
+    } 
+} 
+ 
+ 
+ 
+3.
+using System; 
+using System.Collections.Generic; 
+using System.Linq; 
+using System.Text; 
+using System.Threading.Tasks; 
+using System.Collections; 
+using static System.Console; 
+namespace MyStackStoreAnyType 
+{ 
+    internal class Program 
+    { 
+        static void Main(string[] args) 
+        { 
+            Stack st = new Stack(); 
+            st.Push("USHA"); 
+            st.Push("AVANTHI"); 
+            st.Push(980.89); 
+            st.Push(45); 
+            st.Push('a'); 
+            st.Push(225.67f); 
+            st.Push(231348.90D); 
+            foreach (object obj in st) 
+            { 
+                WriteLine(obj); 
+            } 
+            WriteLine("\n"); 
+            WriteLine("Popping the element from stack {0}", st.Pop()); 
+            ReadLine(); 
+        } 
+}
+}
+                                                
+4.
+using System; 
+using System.Collections.Generic; 
+using System.Linq; 
+using System.Text; 
+using System.Threading.Tasks; 
+namespace SystemArray_Program 
+{ 
+    internal class Program 
+    { 
+        static void Main(string[] args) 
+        { 
+            Console.WriteLine("Enter size of an array"); 
+            int size_of_arr = int.Parse(Console.ReadLine()); 
+            int[] array = new int[size_of_arr]; 
+            string[] string_array = new string[size_of_arr]; 
+            Console.WriteLine("Enter int type element in array\n"); 
+            for (int i = 0; i < size_of_arr; i++) 
+            { 
+                array[i] = int.Parse(Console.ReadLine()); 
+            } 
+            Console.WriteLine("\nOutput before applying any method \n"); 
+            foreach (int val in array) 
+            { 
+                Console.Write(val + " "); 
+            } 
+            Console.WriteLine("\n"); 
+            int[] array2 = new int[size_of_arr]; 
+            Array.Copy(array, array2, size_of_arr);//Copy() Method 
+            Console.WriteLine("After copying one array in array2\n"); 
+            foreach (int val in array2) 
+            { 
+                Console.Write(val + " "); 
+            } 
+            Console.WriteLine("\nafter clearing array2\n"); 
+            Array.Clear(array2, 0, size_of_arr);//clear method to clear array2 
+            foreach (int val in array2) 
+            { 
+                Console.Write(val + " "); 
+            } 
+            Console.WriteLine(); 
+            Array.Reverse(array);//After reversing array 
+            foreach (int val in array) 
+            { 
+                Console.Write(val + " "); 
+            } 
+            Console.WriteLine("\n"); 
+            Array.Sort(array);//sorting array 
+            Console.WriteLine("\nAfter Sorting array\n"); 
+            foreach (int val in array) 
+            { 
+                Console.Write(val + " "); 
+            } 
+            Console.WriteLine("\nInsert string in string array\n"); 
+            for (int i = 0; i < size_of_arr; i++) 
+            { 
+                string_array[i] = Console.ReadLine(); 
+            } 
+            Console.WriteLine("Output of String_array before appplying any method\n"); 
+            foreach (string ele in string_array) 
+            { 
+                Console.Write(ele + " "); 
+            } 
+            Console.WriteLine("\n"); 
+            Array.Reverse(string_array); 
+            Console.WriteLine("After Reversing string array\n"); 
+            foreach (string ele in string_array) 
+            { 
+                Console.Write(ele + " "); 
+            } 
+            Console.WriteLine("\n"); 
+            Array.Sort(string_array); 
+            Console.WriteLine("\nAfter sorting string_array\n"); 
+            foreach (string ele in string_array) 
+            { 
+                Console.Write(ele + " "); 
+            } 
+            Console.WriteLine("\n"); 
+            string[] array_string2 = new string[size_of_arr]; 
+            Array.Copy(string_array, array_string2, size_of_arr); 
+            Console.WriteLine("\nAfter copying array_string into array_string2\n"); 
+            foreach (string ele in array_string2) 
+            { 
+                Console.Write(ele + " "); 
+            } 
+            Console.WriteLine("\nafter clearing\n"); 
+            Array.Clear(string_array, 0, size_of_arr); 
+            foreach (string ele in string_array) 
+            { 
+                Console.Write(ele + " "); 
+            } 
+            Console.ReadLine(); 
+        } 
+    } 
+} 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
